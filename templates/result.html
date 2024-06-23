@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF=8">
+    <title>Analysis Results</title>
+</head>
+<bodey>
+    <h1>分析結果</h1>
+    <h2>色別合計マーカー数</h2>
+    <ul>
+    {% for color, count in totals.items() %}
+        <li>{{ color }}: {{ count }}</li>
+    {% endfor %}
+    </ul>
+    <h2>詳細データ</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>X</th>
+                <th>Y</th>
+                <th>Red</th>
+                <th>Blue</th>
+                <th>Light Gray</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in results %}
+                <tr>
+                    <td>{{ i['x'] }}</td>
+                    <td>{{ i['y'] }}</td>
+                    <td>{{ i['red'] }}</td>
+                    <td>{{ i['blue'] }}</td>
+                    <td>{{ i['light_gray'] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+    </table>
+    <a href="{{ url_for('static', filename=csv_file) }}">CSVファイルをダウンロード</a>
+</bodey>
+</html>
+
+
+
